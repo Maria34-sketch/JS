@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style.css">
+<title>Registration</title>
+</head>
+<body>
+    <nav id="nav-bar">
+        <ul>
+          <li><a class="active" href="./home.html">Home</a></li>
+          <li><a href="./sign-in.html">Sign-In</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        </nav>
+
+    <div class="container">
+        <div class="form-box">
+            <form action="" id="form">
+                <h2>Registration form</h2>
+                <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" name="Username" id="name" placeholder="User Name" required autocomplete="off">
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="email" name="Email" id="email" placeholder="User Email" required autocomplete="off">
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-home-alt-2'></i>
+                    <input type="address" name="address" id="address" placeholder="address" required autocomplete="off">
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-phone' ></i>
+                    <input type="phone" name="phone" id="number" placeholder="Phone Number" required autocomplete="off">
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn" value="Submit">
+                </div> 
+            </form>
+        </div>
+        <div class="container1">
+           
+            <div class="list">
+                <table class="table"  style="border-bottom:3px solid blue; border: solid;border-color:black; border-bottom-width:50%;   margin-left:200px; border-radius: 15px; " align="left">
+				
+                    <thead style="border:solid; border-color: black">
+					    
+						<tr>
+						    <th colspan= "5" style= "height:80px;"><h1 align="center" >Student information</h1></th>
+						</tr>	
+					    <tr style ="background:black" >
+                            <th colspan= "5" style= "height:50px; color:rgb(244, 244, 248)"><big>College </big></th> 
+                        </tr>
+                        <tr style= "height:50px; width:70px; background:blue">
+                            <th>Name</th>
+	                        <th>Email</th>
+	                        <th>Address</th> 
+	                        <th>Mobile Number</th>
+	                        <th>Delete</th>
+                        </tr>
+                    </thead>
+					    <tr>
+						   <td>Maira</td>
+						   <td>marianishan44@gmail.com</td>
+						   <td>Muridke</td> 
+						   <td>46476890087</td>
+                           <td><input type="button" class="bt" value="Delete" onclick="deleteRow(this)"></td>
+					    </tr>
+					    <tr>
+						   <td>Mirha</td>
+						   <td>marianishan11@gmail.com</td>
+						   <td>Muridke</td> 
+						   <td>46476890087</td>
+                           <td><input type="button" class="bt" value="Delete" onclick="deleteRow(this)"></td>
+					    </tr>
+                    <tbody  id="productTableBody" >
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+	<script>
+                  
+               
+
+	console.log("js file")
+
+const products = []
+
+const form = document.querySelector('#form')
+	
+	form.addEventListener("submit",(event)=>{
+    event.preventDefault()
+    console.log("form is submitting...");
+
+
+    const name = document.querySelector("#name").value;
+    const email = document.querySelector("#email").value;
+    const address = document.querySelector("#address").value;
+	const number = document.querySelector("#number").value;
+    const product= {
+     name,  email, address, number, 
+  }
+  products.push(product)
+  console.log(products);
+  form.reset()
+  renderTable()
+})
+function renderTable(){
+    const productTableBody = document.querySelector("#productTableBody")
+    let productsHtml = ''
+    products.forEach(product =>
+    {
+      const productHtmlText =`
+        <tr>
+            <td>${product.name}
+            <td>${product.email}
+			<td>${product.address}
+			<td>${product.number}
+                <td><input type="button" class="bt" value="Delete" onclick="myFunction()"></td>   
+        </tr>
+        `
+        productsHtml += productHtmlText     
+    })
+
+   productTableBody.innerHTML = productsHtml
+
+}
+
+renderTable()
+function myFunction() {
+  document.getElementById("productTableBody").deleteRow(0);
+}
+	
+	 </script>
+</body>
+</html>
