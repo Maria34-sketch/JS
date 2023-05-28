@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style.css">
+<title>signup</title>
+</head>
+<body>
+    <nav id="nav-bar">
+        <ul>
+          <li><a class="active" href="./home.html">Home</a></li>
+          <li><a href="./sign-in.html">Sign-In</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        </nav>
+    <div class="container">
+        <div class="form-box">
+            <form action="register.html" name="Formfill">
+                <h2>Sign_In</h2>
+                <!-- <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" name="Username" placeholder="User Name" required autocomplete="off">
+                </div> -->
+                <div class="input-box">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="email" name="Email" placeholder="User Email" id="email" required autocomplete="off">
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt' ></i>
+                    <input type="password" name="password" placeholder="Password" id="pwd" required autocomplete="off">
+                </div>
+                <!-- <div class="input-box">
+                    <i class='bx bxs-lock-alt' ></i>
+                    <input type="password" name="cPassword" placeholder="Confirm Password" required autocomplete="off">
+                </div> -->
+                <div class="button">
+                    <input type="submit" class="btn" value="Sign-In"  onclick="checkData()">
+                    
+                </div>
+                <div class="group">
+                    <span><a>doesn't have an account then: </a></span>
+                    <span><a href="./signup.html" class="d">Sign-Up</a></span>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+
+    
+<script> 
+    function checkData()
+    {
+         var enterEmail = document.getElementById('email').value;
+         var enterPwd = document.getElementById('pwd').value;
+         var getEmail = localStorage.getItem('email1');
+         var getPwd = localStorage.getItem('pass1');
+        if(enterEmail == getEmail && enterPwd == getPwd)
+              {
+                alert("welcome");
+               
+                window.location.href="register.html";
+				
+				
+    
+               }else{ 
+                 alert("Email or password is incorrect");
+				
+				
+               }
+    }
+
+</script>
+</body>
+</html>
